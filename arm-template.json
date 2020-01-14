@@ -6,7 +6,7 @@
         "rgName": {
             "type": "string"
         },
-        "rgLocation": {
+        "location": {
             "type": "string"
         }
     },
