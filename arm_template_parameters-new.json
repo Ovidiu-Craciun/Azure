@@ -25,6 +25,9 @@
         },
         "NsgName": {
             "value": "Nsg01"
+        },
+        "securityRulesName":{
+            "value": "rdp_rule"
         }
     }
 }

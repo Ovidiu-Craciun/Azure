@@ -92,7 +92,7 @@
             "properties": {
               "securityRules": [
                 {
-                  "securityRulesName": "rdp_rule",
+                  "name": "rdp_rule",
                   "properties": {
                     "description": "Allow only RDP connection",
                     "protocol": "Tcp",
