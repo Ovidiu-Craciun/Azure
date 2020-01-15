@@ -47,9 +47,6 @@
         "virtualMachineSize": {
             "value": "Standard B1ls"
         },
-        "dnsLabelPrefix": {
-            "value": "GEN-UNIQUE"
-        },
         "publicIPAddressType": {
             "value": "Dynamic"
         }
