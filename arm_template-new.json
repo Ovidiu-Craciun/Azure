@@ -29,9 +29,6 @@
         "securityRulesName": {
             "type": "string"
         },
-        "securityRulesProtocol": {
-            "type": "string"
-        },
         "destinationPortRange": {
             "type": "string"
         },
@@ -95,7 +92,7 @@
             "properties": {
               "securityRules": [
                 {
-                  "name": "rdp_rule",
+                  "securityRulesName": "rdp_rule",
                   "properties": {
                     "description": "Allow only RDP connection",
                     "protocol": "Tcp",
