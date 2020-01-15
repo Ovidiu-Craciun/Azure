@@ -25,6 +25,27 @@
         },
         "NsgName": {
             "value": "Nsg01"
+        },
+        "VirtualMachineName01":{
+            "value": "VM01"
+        },
+        "VirtualMachineName02":{
+            "value": "VM02"
+        },
+        "adminUsername1":{
+            "value": "user1"
+        },
+        "adminPassword1":{
+            "value": "pass123"
+        },
+        "adminUsername2":{
+            "value": "user2"
+        },
+        "adminPassword2":{
+            "value": "pass123"
+        },
+        "virtualMachineSize":{
+            "value": "Standard B1ls"
         }
     }
 }
