@@ -22,7 +22,29 @@
         },
         "location": {
             "type": "string"
+        },
+        "NsgName": {
+            "type": "string"
+        },
+        "securityRulesName": {
+            "type": "string"
+        },
+        "securityRulesProtocol": {
+            "type": "string"
+        },
+        "destinationPortRange": {
+            "type": "string"
+        },
+        "sourceAddressPrefix": {
+            "type": "string"
+        },
+        "priority": {
+            "type": "string"
+        },
+        "direction": {
+            "type": "string"
         }
+
     },
     "variables": {},
     "resources": [
@@ -63,7 +85,28 @@
                         "addressPrefix":"[parameters('subnet2Prefix')]"
                     }
                 }
-            ]
+            ] 
+        },
+        {
+            "apiVersion": "2018-11-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('NsgName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+            "securityRules": [
+             {
+            "name": "rdp_rule",
+            "properties": {
+              "description": "Allow only RDP connection",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "Internet",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
         }
     ],
     "outputs": {}

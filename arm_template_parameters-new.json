@@ -22,6 +22,9 @@
         },
         "location":{
             "value": "West Europe"
+        },
+        "NsgName": {
+            "value": "Nsg01"
         }
     }
 }
