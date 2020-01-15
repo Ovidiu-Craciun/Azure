@@ -1,70 +1,27 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vnetName": {
-            "type": "string"
+    "parameters":{
+        "vnetName":{
+            "value": "Vnet1"
         },
-        "vnetAddressPrefix": {
-            "type": "string"
+        "vnetAddressPrefix":{
+            "value": "192.168.0.0/16"
         },
-        "subnet1Prefix": {
-            "type": "string"
+        "subnet1Prefix":{
+            "value": "192.168.0.0/24"
         },
-        "subnet1Name": {
-            "type": "string"
+        "subnet1Name":{
+            "value": "Sub1"
         },
-        "subnet2Prefix": {
-            "type": "string"
+        "subnet2Prefix":{
+            "value": "192.168.1.0/24"
         },
-        "subnet2Name": {
-            "type": "string"
+        "subnet2Name":{
+            "value": "Sub2"
         },
-        "location": {
-            "type": "string"
+        "location":{
+            "value": "West Europe"
         }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/virtualNetworks",
-            "apiVersion": "2018-10-01",
-            "location": "[parameters('location')]",
-            "name": "[parameters('vnetName')]",
-            "properties": {
-                "addressSpace":{
-                    "addressPrefixes":[
-                      "[parameters('vnetAddressPrefix')]"
-                    ]
-                }
-            },
-            "resources":[
-                {
-                    "apiVersion": "2018-10-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnet1Name')]",
-                    "dependsOn":[
-                        "[parameters('vnetName')]"
-                    ],
-                    "properties":{
-                        "addressPrefix":"[parameters('subnet1Prefix')]"
-                    }
-                },
-                {
-                    "apiVersion": "2018-10-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnet2Name')]",
-                    "dependsOn":[
-                        "[parameters('vnetName')]"
-                    ],
-                    "properties":{
-                        "addressPrefix":"[parameters('subnet2Prefix')]"
-                    }
-                }
-            ]
-        }
-    ],
-    "outputs": {}
+    }
 }
