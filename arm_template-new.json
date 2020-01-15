@@ -25,23 +25,7 @@
         },
         "NsgName": {
             "type": "string"
-        },
-        "securityRulesName": {
-            "type": "string"
-        },
-        "destinationPortRange": {
-            "type": "string"
-        },
-        "sourceAddressPrefix": {
-            "type": "string"
-        },
-        "priority": {
-            "type": "string"
-        },
-        "direction": {
-            "type": "string"
         }
-
     },
     "variables": {},
     "resources": [
