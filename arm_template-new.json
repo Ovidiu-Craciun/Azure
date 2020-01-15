@@ -138,7 +138,7 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[variables('nic1')]",
-            "apiVersion": "2016-03-30",
+            "apiVersion": "2019-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]",
@@ -165,7 +165,7 @@
         {
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[variables('nic2')]",
-            "apiVersion": "2016-03-30",
+            "apiVersion": "2019-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
