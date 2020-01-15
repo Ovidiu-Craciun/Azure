@@ -158,7 +158,7 @@
                             "sourceAddressPrefix": "[parameters('subnet1Prefix')]",
                             "destinationAddressPrefix": "[parameters('subnet2Prefix')]",
                             "access": "Allow",
-                            "priority": 100,
+                            "priority": 101,
                             "direction": "Inbound"
                         }
                     }
