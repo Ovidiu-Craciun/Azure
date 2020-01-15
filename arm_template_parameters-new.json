@@ -1,51 +1,57 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters":{
-        "vnetName":{
+    "parameters": {
+        "vnetName": {
             "value": "Vnet1"
         },
-        "vnetAddressPrefix":{
+        "vnetAddressPrefix": {
             "value": "192.168.0.0/16"
         },
-        "subnet1Prefix":{
+        "subnet1Prefix": {
             "value": "192.168.0.0/24"
         },
-        "subnet1Name":{
+        "subnet1Name": {
             "value": "Sub1"
         },
-        "subnet2Prefix":{
+        "subnet2Prefix": {
             "value": "192.168.1.0/24"
         },
-        "subnet2Name":{
+        "subnet2Name": {
             "value": "Sub2"
         },
-        "location":{
+        "location": {
             "value": "West Europe"
         },
         "NsgName": {
             "value": "Nsg01"
         },
-        "VirtualMachineName01":{
+        "VirtualMachineName01": {
             "value": "VM01"
         },
-        "VirtualMachineName02":{
+        "VirtualMachineName02": {
             "value": "VM02"
         },
-        "adminUsername1":{
+        "adminUsername1": {
             "value": "user1"
         },
-        "adminPassword1":{
+        "adminPassword1": {
             "value": "pass123"
         },
-        "adminUsername2":{
+        "adminUsername2": {
             "value": "user2"
         },
-        "adminPassword2":{
+        "adminPassword2": {
             "value": "pass123"
         },
-        "virtualMachineSize":{
+        "virtualMachineSize": {
             "value": "Standard B1ls"
+        },
+        "dnsLabelPrefix": {
+            "value": "GEN-UNIQUE"
+        },
+        "publicIPAddressType": {
+            "value": "Dynamic"
         }
     }
 }
