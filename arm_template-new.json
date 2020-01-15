@@ -93,21 +93,24 @@
             "name": "[parameters('NsgName')]",
             "location": "[parameters('location')]",
             "properties": {
-            "securityRules": [
-             {
-            "name": "rdp_rule",
-            "properties": {
-              "description": "Allow only RDP connection",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
+              "securityRules": [
+                {
+                  "name": "rdp_rule",
+                  "properties": {
+                    "description": "Allow only RDP connection",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "3389",
+                    "sourceAddressPrefix": "Internet",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 100,
+                    "direction": "Inbound"
+                  }
+                }
+              ]
             }
-        }
-    ],
-    "outputs": {}
-}
+          }
+        ],
+        "outputs": {}
+      }
