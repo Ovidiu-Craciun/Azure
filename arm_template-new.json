@@ -50,6 +50,23 @@
             "metadata": {
                 "description": "Virtual machine size (has to be at least the size of Standard_A3 to support 2 NICs)"
             }
+        },
+        "publicIPAddressType": {
+            "type": "string",
+            "defaultValue": "Dynamic",
+            "allowedValues": [
+                "Dynamic",
+                "Static"
+            ],
+            "metadata": {
+                "description": "Type of public IP address"
+            }
+        },
+        "dnsLabelPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
+            }
         }
     },
     "variables": {
@@ -97,6 +114,19 @@
                 }
             ]
         },
+        {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[variables('publicIPAddressName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+                }
+            }
+        },
+
         {
             "apiVersion": "2018-11-01",
             "type": "Microsoft.Network/networkSecurityGroups",
@@ -152,7 +182,7 @@
                             "primary": true,
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses/publicIp', variables('publicIPAddressName'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
                             },
                             "subnet": {
                                 "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet1Name'))]"
