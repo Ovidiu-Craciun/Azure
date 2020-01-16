@@ -49,6 +49,12 @@
         },
         "publicIPAddressType": {
             "value": "Dynamic"
+        },
+        "bastionHostName": {
+            "value": "Bastion"
+        },
+        "resourceGroupName": {
+            "value": "test-001"
         }
     }
 }

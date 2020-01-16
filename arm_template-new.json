@@ -61,6 +61,12 @@
             "metadata": {
                 "description": "Type of public IP address"
             }
+        },
+        "bastionHostName": {
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "type": "string"
         }
     },
     "variables": {
@@ -284,6 +290,30 @@
                         }
                     ]
                 }
+            }
+        },
+        {
+            "apiVersion": "2019-09-01",
+            "type": "Microsoft.Network/bastionHosts",
+            "name": "[parameters('bastionHostName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "[concat(parameters('bastionHostName'),'-CFG')]",
+                        "properties": {
+                            "subnet": {
+                                "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'),parameters('subnet1Name'))]"
+                            },
+                            "publicIPAddress": {
+                                "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
+                            }
+                        }
+                    }
+                ]
             }
         }
     ],
