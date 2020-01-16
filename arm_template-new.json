@@ -194,7 +194,7 @@
             "properties": {
                 "ipConfigurations": [
                     {
-                        "name": "IPConfig-1",
+                        "name": "IPConfig-2",
                         "properties": {
                             "primary": true,
                             "privateIPAllocationMethod": "Dynamic",
