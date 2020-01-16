@@ -36,13 +36,13 @@
             "value": "userazure1"
         },
         "adminPassword1": {
-            "value": "pass123"
+            "value": "Pass123"
         },
         "adminUsername2": {
             "value": "userazure2"
         },
         "adminPassword2": {
-            "value": "pass123"
+            "value": "Pass123"
         },
         "virtualMachineSize": {
             "value": "Standard_B1ls"
