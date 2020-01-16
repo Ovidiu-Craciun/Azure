@@ -53,7 +53,7 @@
         },
         "publicIPAddressType": {
             "type": "string",
-            "defaultValue": "Dynamic",
+            "defaultValue": "Static",
             "allowedValues": [
                 "Dynamic",
                 "Static"
@@ -184,6 +184,7 @@
             "apiVersion": "2019-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
                 "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet1Name'))]"
             ],
             "properties": {
@@ -207,6 +208,7 @@
             "apiVersion": "2019-04-01",
             "location": "[parameters('location')]",
             "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
                 "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet1Name'))]"
             ],
             "properties": {
