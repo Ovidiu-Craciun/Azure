@@ -228,7 +228,7 @@
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[variables('nic1')]"
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('nic1'))]"
             ],
             "properties": {
                 "osProfile": {
@@ -268,7 +268,7 @@
             "apiVersion": "2018-10-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[variables('nic2')]"
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('nic2'))]"
             ],
             "properties": {
                 "osProfile": {
