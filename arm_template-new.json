@@ -70,78 +70,6 @@
     },
     "resources": [
         {
-            "name": "[parameters('VirtualMachineName01')]",
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-10-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[variables('nic1')]"
-            ],
-            "properties": {
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachineName01')]",
-                    "adminUsername": "[parameters('adminUsername1')]",
-                    "adminPassword": "[parameters('adminPassword1')]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('virtualMachineSize')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "MicrosoftWindowsServer",
-                        "offer": "WindowsServer",
-                        "sku": "2016-Datacenter",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "createOption": "FromImage"
-                    }
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nic1'))]",
-                            "properties": {
-                                "primary": true
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "[parameters('VirtualMachineName02')]",
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-10-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[variables('nic2')]"
-            ],
-            "properties": {
-                "osProfile": {
-                    "computerName": "[parameters('virtualMachineName02')]",
-                    "adminUsername": "[parameters('adminUsername2')]",
-                    "adminPassword": "[parameters('adminPassword2')]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('virtualMachineSize')]"
-                },
-                "osDisk": {
-                    "osType": "Linux"
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nic2'))]",
-                            "properties": {
-                                "primary": true
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2018-11-01",
             "location": "[parameters('location')]",
@@ -185,6 +113,9 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[variables('publicIPAddressName')]",
             "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('subnets', parameters('subnet1Name'))]"
+            ],
             "properties": {
                 "publicIPAllocationMethod": "[parameters('publicIPAddressType')]"
             }
@@ -277,8 +208,79 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "[parameters('VirtualMachineName01')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[variables('nic1')]"
+            ],
+            "properties": {
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachineName01')]",
+                    "adminUsername": "[parameters('adminUsername1')]",
+                    "adminPassword": "[parameters('adminPassword1')]"
+                },
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nic1'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "[parameters('VirtualMachineName02')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-10-01",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[variables('nic2')]"
+            ],
+            "properties": {
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachineName02')]",
+                    "adminUsername": "[parameters('adminUsername2')]",
+                    "adminPassword": "[parameters('adminPassword2')]"
+                },
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "osDisk": {
+                    "osType": "Linux"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nic2'))]",
+                            "properties": {
+                                "primary": true
+                            }
+                        }
+                    ]
+                }
+            }
         }
-
     ],
     "outputs": {
     }
