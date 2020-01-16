@@ -127,6 +127,9 @@
                     "type": "subnets",
                     "name": "[parameters('subnet3Name')]",
                     "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[parameters('vnetName')]"
+                    ],
                     "properties": {
                         "addressPrefix": "[parameters('subnet3Prefix')]"
                     }
