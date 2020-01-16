@@ -30,16 +30,16 @@
             "value": "VM01"
         },
         "VirtualMachineName02": {
-            "value": "test1"
+            "value": "VM02"
         },
         "adminUsername1": {
-            "value": "test2"
+            "value": "userazure1"
         },
         "adminPassword1": {
             "value": "pass123"
         },
         "adminUsername2": {
-            "value": "user2"
+            "value": "userazure2"
         },
         "adminPassword2": {
             "value": "pass123"
