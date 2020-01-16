@@ -136,7 +136,6 @@
                 "name": "Standard"
             },
             "properties": {
-                "publicIPAllocationMethod": "[parameters('publicIPAddressType')]"
             }
         },
 
@@ -209,7 +208,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
-                "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet1Name'))]"
+                "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet2Name'))]"
             ],
             "properties": {
                 "ipConfigurations": [
