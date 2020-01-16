@@ -20,6 +20,9 @@
         "subnet2Name": {
             "type": "string"
         },
+        "subnet3Prefix": {
+            "type": "string"
+        },
         "location": {
             "type": "string"
         },
@@ -67,6 +70,13 @@
         },
         "resourceGroupName": {
             "type": "string"
+        },
+        "subnet3Name": {
+            "type": "string",
+            "metadata": {
+                "description": "Subnet name of the Bastion."
+            },
+            "defaultValue": "AzureBastionSubnet"
         }
     },
     "variables": {
@@ -110,6 +120,15 @@
                     ],
                     "properties": {
                         "addressPrefix": "[parameters('subnet2Prefix')]"
+                    }
+                },
+                {
+                    "apiVersion": "2018-11-01",
+                    "type": "subnets",
+                    "name": "[concat(parameters('vnetName'), '/', parameters('subnet3Name'))]",
+                    "location": "[parameters('location')]",
+                    "properties": {
+                        "addressPrefix": "[parameters('subnet3Prefix')]"
                     }
                 }
             ]
@@ -306,7 +325,7 @@
                         "name": "[concat(parameters('bastionHostName'),'-CFG')]",
                         "properties": {
                             "subnet": {
-                                "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'),parameters('subnet1Name'))]"
+                                "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'),parameters('subnet3Name'))]"
                             },
                             "publicIPAddress": {
                                 "id": "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
