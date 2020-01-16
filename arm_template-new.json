@@ -134,7 +134,8 @@
             "location": "[parameters('location')]",
             "properties": {
                 "publicIPAllocationMethod": "[parameters('publicIPAddressType')]"
-            }
+            },
+            "sku": "Standard"
         },
 
         {
