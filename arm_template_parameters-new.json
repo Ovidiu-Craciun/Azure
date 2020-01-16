@@ -45,7 +45,7 @@
             "value": "pass123"
         },
         "virtualMachineSize": {
-            "value": "Standard B1ls"
+            "value": "Standard_B1ls"
         },
         "publicIPAddressType": {
             "value": "Dynamic"

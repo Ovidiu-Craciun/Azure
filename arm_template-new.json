@@ -263,9 +263,6 @@
                 "hardwareProfile": {
                     "vmSize": "[parameters('virtualMachineSize')]"
                 },
-                "osDisk": {
-                    "osType": "Linux"
-                },
                 "networkProfile": {
                     "networkInterfaces": [
                         {
