@@ -313,7 +313,9 @@
             "name": "[parameters('bastionHostName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
+                "[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+                "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnet2Name'))]"
             ],
             "properties": {
                 "ipConfigurations": [
