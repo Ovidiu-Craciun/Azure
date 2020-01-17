@@ -133,7 +133,7 @@
             "name": "[variables('publicIPAddressName')]",
             "location": "[parameters('location')]",
             "sku": {
-                "name": "Basic"
+                "name": "Standard"
             },
             "properties": {
                 "publicIPAddressVersion": "IPv4",
