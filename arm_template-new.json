@@ -53,7 +53,7 @@
         },
         "publicIPAddressType": {
             "type": "string",
-            "defaultValue": "Static",
+            "defaultValue": "Dynamic",
             "allowedValues": [
                 "Dynamic",
                 "Static"
@@ -136,6 +136,8 @@
                 "name": "Standard"
             },
             "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "[parameters('publicIPAddressType')]"
             }
         },
 
