@@ -50,14 +50,8 @@
         "virtualMachineSize": {
             "value": "Standard_B1ls"
         },
-        "publicIPAddressType": {
-            "value": "Dynamic"
-        },
         "bastionHostName": {
             "value": "Bastion"
-        },
-        "resourceGroupName": {
-            "value": "test-001"
         }
     }
 }
