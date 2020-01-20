@@ -318,7 +318,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('bastionHostName'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
             ],
             "properties": {
                 "ipConfigurations": [
