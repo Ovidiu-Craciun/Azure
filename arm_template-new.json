@@ -314,7 +314,7 @@
         {
             "apiVersion": "2019-04-01",
             "type": "Microsoft.Network/bastionHosts",
-            "name": "[parameters('bastion-host-name')]",
+            "name": "[parameters('bastionHostName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]",
