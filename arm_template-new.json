@@ -84,7 +84,15 @@
                     "addressPrefixes": [
                         "[parameters('vnetAddressPrefix')]"
                     ]
-                }
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('bastion-subnet-name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet3Prefix')]"
+                        }
+                    }
+                ]
             },
             "resources": [
                 {
