@@ -91,48 +91,21 @@
                         "properties": {
                             "addressPrefix": "[parameters('subnet3Prefix')]"
                         }
+                    },
+                    {
+                        "name": "[parameters('subnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[parameters('subnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[parameters('subnet2Prefix')]"
+                        }
                     }
                 ]
-            },
-            "resources": [
-                {
-                    "apiVersion": "2018-11-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnet1Name')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-                    ],
-                    "properties": {
-                        "addressPrefix": "[parameters('subnet1Prefix')]"
-                    }
-                },
-                {
-                    "apiVersion": "2018-11-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[parameters('subnet2Name')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-                    ],
-                    "properties": {
-                        "addressPrefix": "[parameters('subnet2Prefix')]"
-                    }
-                },
-                {
-                    "apiVersion": "2018-11-01",
-                    "type": "subnets",
-                    "location": "[parameters('location')]",
-                    "name": "[variables('bastion-subnet-name')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-                    ],
-                    "properties": {
-                        "addressPrefix": "[parameters('subnet3Prefix')]"
-                    }
-                }
-
-            ]
+            }
         },
         {
             "condition": "[equals(parameters('vnet-new-or-existing'), 'existing')]",
